@@ -1,6 +1,7 @@
 package com.example.administrator.sampleapplication.ui;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
@@ -12,6 +13,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -82,6 +85,7 @@ public class DeviceListFragment extends Fragment implements IViewPresenter {
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(reCyclerViewAdapters);
+        runLayoutAnimation(recyclerView);
         hideProgress();
     }
 
@@ -109,5 +113,14 @@ public class DeviceListFragment extends Fragment implements IViewPresenter {
         emptyView.setVisibility(View.VISIBLE);
         recyclerView.setVisibility(View.GONE);
         emptyView.setText(getActivity().getResources().getString(R.string.errorData));
+    }
+    private void runLayoutAnimation(final RecyclerView recyclerView) {
+        final Context context = recyclerView.getContext();
+        final LayoutAnimationController controller =
+                AnimationUtils.loadLayoutAnimation(context, R.anim.layout_animation_fall_down);
+
+        recyclerView.setLayoutAnimation(controller);
+        recyclerView.getAdapter().notifyDataSetChanged();
+        recyclerView.scheduleLayoutAnimation();
     }
 }

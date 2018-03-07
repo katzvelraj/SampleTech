@@ -15,4 +15,7 @@
     <string name="parser_name">name</string>
     <string name="parser_devices">devices</string>
     <string name="errorData"> No Data Available</string>
+
+    <integer name="anim_duration_medium">700</integer>
+    <integer name="anim_duration_long">400</integer>
 </resources>

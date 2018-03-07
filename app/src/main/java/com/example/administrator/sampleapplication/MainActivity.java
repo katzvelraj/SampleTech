@@ -1,5 +1,6 @@
 package com.example.administrator.sampleapplication;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -10,6 +11,7 @@ import com.example.administrator.sampleapplication.ui.DeviceListFragment;
 import com.example.administrator.sampleapplication.R;
 
 import butterknife.ButterKnife;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
 /**
@@ -68,6 +70,9 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
 
 }
