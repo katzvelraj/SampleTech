@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">SampleApp</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="DeviceList">DeviceList</string>
+    <string name="splash">Splash Screen</string>
+
+
+    <string name="deviceType">Device Type : </string>
+    <string name="model">Model : </string>
+    <string name="name">Name : </string>
+
+    <string name="parser_deviceType">deviceType</string>
+    <string name="parser_model">model</string>
+    <string name="parser_name">name</string>
+    <string name="parser_devices">devices</string>
+    <string name="errorData"> No Data Available</string>
+</resources>
